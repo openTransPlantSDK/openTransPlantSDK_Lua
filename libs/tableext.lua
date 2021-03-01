@@ -89,11 +89,17 @@ function table.dump(tb,index)
 
     for k,v in pairs(tb)do
         if type(v) ~= "table" then
-            print(k.."("..type(k)..")".."="..v.."("..type(v)..")")
+            if type(v) == "function" then
+                print(k .. "(function)")
+            else
+                print(k.."("..type(k)..")".."="..v.."("..type(v)..")")
+            end
         else
-            dump(tb,index+1)
+            table.dump(tb,index+1)
         end
     end
 
     index=index-1
 end
+
+return _C

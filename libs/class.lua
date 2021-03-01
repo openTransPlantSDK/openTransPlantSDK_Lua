@@ -1,5 +1,4 @@
-local _class={}
- 
+local _class = {}
 function class(super)
 	local class_type={}
 	class_type.ctor=false
@@ -52,3 +51,5 @@ function class(super)
  
 	return class_type
 end
+
+return _M
